@@ -2,34 +2,43 @@ import React from 'react';
 
 const List = (props) => {
   //searchResults
-  const events = props.searchResults.map((event, index) =>
-    <li className="event" key={index}>
-      <span className="event-date">
-        {event.date}
-      </span>
-      <span className="event-description">
-        {event.description}
-      </span>
-      <span className="event-language">
-        {event.lang}
-      </span>
-      <span className="event-category1">
-        {event.category1}
-      </span>
-      <span className="event-category2">
-        {event.category2}
-      </span>
-      <span className="event-granularity">
-        {event.granularity}
-      </span>
-    </li>
-  );
   return (
-    <div className="list">
-      <ul>
-        {events}
-      </ul>
-    </div>
+    <table className="list">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Language</th>
+          <th>Category1</th>
+          <th>Category2</th>
+          <th>Granularity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.searchResults.map((event, index) => (
+          <tr className="event" key={index}>
+            <td className="event-date">
+              {event.date}
+            </td>
+            <td className="event-description">
+              {event.description}
+            </td>
+            <td className="event-language">
+              {event.lang}
+            </td>
+            <td className="event-category1">
+              {event.category1}
+            </td>
+            <td className="event-category2">
+              {event.category2}
+            </td>
+            <td className="event-granularity">
+              {event.granularity}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
