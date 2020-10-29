@@ -59,21 +59,23 @@ class App extends React.Component {
         <header>
           <h2>Historical Events Finder</h2>
         </header>
-        <Search keyword={this.state.keyword} handleInput={this.handleInput} handleSubmit={this.handleSubmit} />
-        <List searchResults={this.state.searchResults} />
-        <ReactPaginate
-        pageCount={this.state.pageCount}
-        pageRangeDisplayed={5}
-        marginPagesDisplayed={2}
-        previousLabel={'<'}
-        nextLabel={'>'}
-        breakLabel={'...'}
-        breakClassName={'break-ellipsis'}
-        onPageChange={this.handlePageClick}
-        activeClassName={'active-page'}
-        containerClassName={'pagination-container'}
-        pageClassName={'page'}
-        />
+        <main>
+          <Search keyword={this.state.keyword} handleInput={this.handleInput} handleSubmit={this.handleSubmit} />
+          <List searchResults={this.state.searchResults} />
+          <ReactPaginate
+            pageCount={this.state.pageCount}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={2}
+            previousLabel={'＜'}
+            nextLabel={'＞'}
+            breakLabel={'...'}
+            breakClassName={'break-ellipsis'}
+            onPageChange={this.handlePageClick}
+            activeClassName={'active-page'}
+            containerClassName={'pagination-container'}
+            pageClassName={'page'}
+          />
+        </main>
       </div>
     );
   }

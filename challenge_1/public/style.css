@@ -1,0 +1,84 @@
+header {
+  font-family: 'Montserrat', sans-serif;
+  color: #333333;
+  text-align: center;
+  padding: 0px 0px 28px 0px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  padding: 60px 0;
+  margin: 1px;
+  font-size: 1em;
+  background-color: #f6f4e8;
+}
+
+main {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+form {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+input[type="search"] {
+  margin: 8px;
+  padding: 14px;
+  border: 2px solid #333333;
+  outline: none;
+  border-radius: 3px;
+  color: #333333;
+  width: 25%;
+  height: 30px;
+}
+
+input[type="submit"] {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #333333;
+  background-color: #e9e3d4;
+  margin: 8px;
+  padding: 4px;
+  border: 2.25px solid #333333;
+  border-radius: 3px;
+  height: 30px;
+  cursor: pointer;
+}
+
+table {
+  padding: 26px;
+}
+
+td {
+  padding: 8px;
+  text-align: justify;
+}
+
+tbody {
+  padding: 14px 0px 8px 0px;
+}
+
+.pagination-container {
+  display: flex;
+  list-style: none;
+  margin-left: 32%;
+}
+
+.pagination-container > .active-page > a {
+  font-size: x-large;
+  background-color: #ffffff ;
+  border-color: #ffffff ;
+  border-radius: 3px;
+}
+
+.pagination-container > li > a {
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+
+

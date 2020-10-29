@@ -3,7 +3,7 @@ import React from 'react';
 const List = (props) => {
   //searchResults
   return (
-    <table className="list">
+    <table>
       <thead>
         <tr>
           <th>Date</th>
