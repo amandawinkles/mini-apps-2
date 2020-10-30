@@ -4,7 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
 const port = 3000;
-const Chart = require('chart.js');
 
 const app = express();
 
