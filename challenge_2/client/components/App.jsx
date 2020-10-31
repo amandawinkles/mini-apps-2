@@ -88,6 +88,10 @@ class App extends React.Component {
               padding: 20,
               fontColor: "rgba(0,0,0,0.5)",
               fontStyle: "bold"
+            },
+            type: 'time',
+            time: {
+              unit: 'day'
             }
           }]
         }
@@ -99,7 +103,7 @@ class App extends React.Component {
     return (
       <div>
         <canvas id="myChart"></canvas>
-        <div>Powered by CoinDesk</div>
+        <div className="rights">Powered by CoinDesk</div>
       </div>
     );
   }
