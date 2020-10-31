@@ -56,6 +56,10 @@ class App extends React.Component {
         }]
       },
       options: {
+        title: {
+          display: true,
+          text: 'BitCoin Charting Tool'
+        },
         tooltips: {
           mode: 'nearest'
         },
@@ -68,17 +72,17 @@ class App extends React.Component {
               fontColor: "rgba(0,0,0,0.5)",
               fontStyle: "bold",
               beginAtZero: false,
-              maxTicksLimit: 5,
               padding: 40
             },
             gridLines: {
-              drawTicks: false,
-              display: false
+              zeroLineColor: "transparent"
             }
           }],
           xAxes: [{
             gridLines: {
-              zeroLineColor: "transparent"
+              zeroLineColor: "transparent",
+              drawTicks: false,
+              display: false,
             },
             ticks: {
               padding: 20,
