@@ -7,7 +7,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bpiData: {},
       bpiKeys: [],
       bpiValues: [],
       startDate: '2020-07-30',
@@ -18,9 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=2020-07-30&end=2020-10-30`)
       .then((results) => {
-        //console.log(results.data.bpi);
         this.setState({
-          bpiData: results.data.bpi,
           bpiKeys: Object.keys(results.data.bpi),
           bpiValues: Object.values(results.data.bpi)
         }, () => {
@@ -34,7 +31,11 @@ class App extends React.Component {
   }
 
   createChart() {
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart').getContext("2d");
+    //ctx.style.backgroundColor = '#26232c';
+    const gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#80b6f4");
+    gradientStroke.addColorStop(1, "#f49080");
     const myChart = new Chart(ctx, {
       type: 'line',
       data: {
@@ -42,16 +43,47 @@ class App extends React.Component {
         datasets: [{
           label: 'BitCoin Value in USD',
           data: this.state.bpiValues,
-          backgroundColor: '#d3e7e6',
-          borderColor: '#94bbb9',
-          borderWidth: 1
+          borderColor: gradientStroke,
+          pointBorderColor: gradientStroke,
+          pointBackgroundColor: gradientStroke,
+          pointHoverBackgroundColor: gradientStroke,
+          pointHoverBorderColor: gradientStroke,
+          pointBorderWidth: 6,
+          pointHoverRadius: 10,
+          pointHoverBorderWidth: 1,
+          pointRadius: 3,
+          borderWidth: 4
         }]
       },
       options: {
+        tooltips: {
+          mode: 'nearest'
+        },
+        legend: {
+          position: "bottom"
+        },
         scales: {
-          yAxes : [{
+          yAxes: [{
             ticks: {
-              beginAtZero: false
+              fontColor: "rgba(0,0,0,0.5)",
+              fontStyle: "bold",
+              beginAtZero: false,
+              maxTicksLimit: 5,
+              padding: 40
+            },
+            gridLines: {
+              drawTicks: false,
+              display: false
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              zeroLineColor: "transparent"
+            },
+            ticks: {
+              padding: 20,
+              fontColor: "rgba(0,0,0,0.5)",
+              fontStyle: "bold"
             }
           }]
         }
@@ -60,7 +92,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('🧚‍♀️ bpiData in render: ', this.state.bpiData);
     return (
       <div>
         <canvas id="myChart"></canvas>
