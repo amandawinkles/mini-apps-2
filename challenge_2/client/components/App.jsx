@@ -9,13 +9,16 @@ class App extends React.Component {
     this.state = {
       bpiKeys: [],
       bpiValues: [],
-      startDate: '2020-07-30',
-      endDate: '2020-10-30'
+      startDate: '',
+      endDate: ''
     };
+    this.handleStartInput = this.handleStartInput.bind(this);
+    this.handleEndInput = this.handleEndInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=2020-07-30&end=2020-10-30`)
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${this.state.startDate}&end=${this.state.endDate}`)
       .then((results) => {
         this.setState({
           bpiKeys: Object.keys(results.data.bpi),
@@ -27,7 +30,6 @@ class App extends React.Component {
       .catch((err) => {
         console.log('error fetching bpi data: ', err);
       });
-      this.createChart();
   }
 
   createChart() {
@@ -79,15 +81,15 @@ class App extends React.Component {
             }
           }],
           xAxes: [{
-            gridLines: {
-              zeroLineColor: "transparent",
-              drawTicks: false,
-              display: false,
-            },
             ticks: {
               padding: 20,
               fontColor: "rgba(0,0,0,0.5)",
               fontStyle: "bold"
+            },
+            gridLines: {
+              zeroLineColor: "transparent",
+              drawTicks: false,
+              display: false,
             },
             type: 'time',
             time: {
@@ -99,10 +101,55 @@ class App extends React.Component {
     });
   }
 
+  handleStartInput(event) {
+    event.preventDefault();
+    const date = event.target.value;
+    this.handleSubmit(date, this.state.endDate);
+    this.setState({
+      startDate: date
+    });
+  }
+
+  handleEndInput(event) {
+    event.preventDefault();
+    const date = event.target.value;
+    this.handleSubmit(this.state.startDate, date);
+    this.setState({
+      endDate: date
+    });
+  }
+
+  handleSubmit(start, end) {
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${start}&end=${end}`)
+      .then((results) => {
+        this.setState({
+          bpiKeys: Object.keys(results.data.bpi),
+          bpiValues: Object.values(results.data.bpi)
+        }, () => {
+          this.createChart();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   render() {
     return (
       <div>
         <canvas id="myChart"></canvas>
+        <div>
+          <form>
+            <label className="start">
+              Start Date:
+              <input type="date" value={this.state.startDate} onChange={this.handleStartInput} />
+            </label>
+            <label className="end">
+              End Date:
+              <input type="date" value={this.state.endDate} onChange={this.handleEndInput} />
+            </label>
+          </form>
+        </div>
         <div className="rights">Powered by CoinDesk</div>
       </div>
     );

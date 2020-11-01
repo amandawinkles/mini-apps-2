@@ -1,4 +1,36 @@
 .rights {
   font-size: x-small;
+  font-family: 'Raleway', sans-serif;
   color: rgba(0,0,0,0.5);
+}
+
+#myChart {
+  font-family: 'Raleway', sans-serif;
+  color: #989898;
+}
+
+.start {
+  color: #989898;
+}
+
+.end {
+  padding: 14px;
+  color: #989898;
+}
+
+form {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: #989898;
+}
+
+input[type="date"] {
+  margin: 8px;
+  padding: 14px;
+  border: 2px solid #989898;
+  outline: none;
+  border-radius: 3px;
+  color: #989898;
+  width: 15%;
+  height: 20px;
 }
