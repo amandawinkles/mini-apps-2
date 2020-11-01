@@ -9,8 +9,8 @@ class App extends React.Component {
     this.state = {
       bpiKeys: [],
       bpiValues: [],
-      startDate: '',
-      endDate: ''
+      startDate: '2020-03-01',
+      endDate: new Date().toISOString().substr(0, 10)
     };
     this.handleStartInput = this.handleStartInput.bind(this);
     this.handleEndInput = this.handleEndInput.bind(this);
@@ -58,10 +58,6 @@ class App extends React.Component {
         }]
       },
       options: {
-        title: {
-          display: true,
-          text: 'BitCoin Charting Tool'
-        },
         tooltips: {
           mode: 'nearest'
         },
@@ -137,6 +133,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h3>BitCoin Charting Tool</h3>
         <canvas id="myChart"></canvas>
         <div>
           <form>
@@ -157,3 +154,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+//startDate: '2020-03-01',
+//endDate: new Date().toISOString().substr(0, 10)
