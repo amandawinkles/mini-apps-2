@@ -21,6 +21,7 @@ class App extends React.Component {
 
   //strikes & spares
   //frame 10
+  //total score adding whole time
   //reset the game
 
   handleInput(e) {
@@ -39,6 +40,7 @@ class App extends React.Component {
           frameNum: this.state.frameNum + 1
         });
         this.state.bowlNumsArr.push(this.state.bowlNum);
+        this.state.bowlScore = 0;
       } else {
         this.setState({
           bowlScore: roll,
