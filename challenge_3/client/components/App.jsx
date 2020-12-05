@@ -9,6 +9,7 @@ class App extends React.Component {
       numOfPins: 0,
       frameNum: 1,
       bowlNum: 1,
+      bowlNumsArr: [],
       bowlScore: 0,
       strike: 0,
       spare: 0,
@@ -37,11 +38,13 @@ class App extends React.Component {
           bowlNum: this.state.bowlNum + 1,
           frameNum: this.state.frameNum + 1
         });
+        this.state.bowlNumsArr.push(this.state.bowlNum);
       } else {
         this.setState({
           bowlScore: roll,
           bowlNum: this.state.bowlNum + 1
         });
+        this.state.bowlNumsArr.push(this.state.bowlNum);
       }
     }
     if (this.state.frameNum === 10) {
@@ -52,11 +55,13 @@ class App extends React.Component {
             bowlNum: this.state.bowlNum + 1,
             strike: this.state.strike + 1
           });
+          this.state.bowlNumsArr.push(this.state.bowlNum);
         } else {
           this.setState({
             bowlScore: roll,
             bowlNum: this.state.bowlNum + 1
           });
+          this.state.bowlNumsArr.push(this.state.bowlNum);
         }
       } else if (this.state.bowlNum === 20) {
         if (roll === 10) {
@@ -65,11 +70,13 @@ class App extends React.Component {
             bowlNum: this.state.bowlNum + 1,
             strike: this.state.strike + 1
           });
+          this.state.bowlNumsArr.push(this.state.bowlNum);
         } else {
           this.setState({
             bowlScore: roll,
             bowlNum: this.state.bowlNum + 1
           });
+          this.state.bowlNumsArr.push(this.state.bowlNum);
         }
       } else {
         //if strike on this.state.bowlNum 19 - this.state.frameNum[this.state.bowlNum] setState, //else roll = 0
@@ -77,6 +84,7 @@ class App extends React.Component {
           bowlScore: roll,
           bowlNum: this.state.bowlNum + 1
         });
+        this.state.bowlNumsArr.push(this.state.bowlNum);
       }
     }
     if (this.state.frameNum === 11) {
@@ -101,7 +109,7 @@ class App extends React.Component {
         <button value="8" onClick={(e) => this.handleInput(e)}>8</button>
         <button value="9" onClick={(e) => this.handleInput(e)}>9</button>
         <button value="10" onClick={(e) => this.handleInput(e)}>10</button>
-        <ScoreCard numOfPins={this.state.numOfPins} frameNum={this.state.frameNum} bowlNum={this.state.bowlNum} bowlScore={this.state.bowlScore} strike={this.state.strike} spare={this.state.spare} score={this.state.score} totalScore={this.state.totalScore} />
+        <ScoreCard numOfPins={this.state.numOfPins} frameNum={this.state.frameNum} bowlNumsArr={this.state.bowlNumsArr} bowlScore={this.state.bowlScore} strike={this.state.strike} spare={this.state.spare} score={this.state.score} totalScore={this.state.totalScore} />
       </div>
     );
   }
