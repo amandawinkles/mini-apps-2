@@ -2,27 +2,22 @@ import React from 'react';
 
 const ScoreCard = (props) => {
   const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Total'];
-  //let count = {};
-  const indBowlScores = props.bowlNumsArr.map((num) => {
-    //store num in object with count
-    //if count.hasOwnProperty(num), return, else, count[num] = 1
-    // if (count.hasOwnProperty(num)) {
-    //   return;
-    // }
-    // count[num] = 1;
-    return (
-        <td className="bowl-scores" key={num}>{props.bowlScore}</td>
-    );
-  });
   const indFrames = frames.map((frame) => {
     if (frame === 10) {
       return (
-        <th colSpan="3" key={frame}>{frame}</th>
+        <th colSpan="2" key={frame}>{frame}</th>
       );
     }
     return (
-      <th colSpan="2" key={frame}>{frame}</th>
+      <th key={frame}>{frame}</th>
     );
+  });
+  const frameScores = props.scores.map((score, index) => {
+    if (index % 2 === 0 && index !== 0) {
+      return (
+        <td key={score}>{score}</td>
+      );
+    }
   });
 
   return (
@@ -35,10 +30,19 @@ const ScoreCard = (props) => {
         </thead>
         <tbody>
           <tr className="bowls-row">
-            {indBowlScores}
+            <td>{props.bowlScores[0]}{props.bowlScores[1]}</td>
+            <td>{props.bowlScores[2]}{props.bowlScores[3]}</td>
+            <td>{props.bowlScores[4]}{props.bowlScores[5]}</td>
+            <td>{props.bowlScores[6]}{props.bowlScores[7]}</td>
+            <td>{props.bowlScores[8]}{props.bowlScores[9]}</td>
+            <td>{props.bowlScores[10]}{props.bowlScores[11]}</td>
+            <td>{props.bowlScores[12]}{props.bowlScores[13]}</td>
+            <td>{props.bowlScores[14]}{props.bowlScores[15]}</td>
+            <td>{props.bowlScores[16]}{props.bowlScores[17]}</td>
+            <td>{props.bowlScores[18]}{props.bowlScores[19]}{props.bowlScores[20]}</td>
           </tr>
-          <tr className="frame-score-row">
-            <td colSpan="2" ></td>
+          <tr className="frame-scores-row">
+            {frameScores}
             <td colSpan="2" id="total-score">{props.totalScore}</td>
           </tr>
         </tbody>
@@ -49,8 +53,4 @@ const ScoreCard = (props) => {
 
 export default ScoreCard;
 
-//numOfPins, frameNum, bowlNumsArr, bowlScore, strike, spare, score, totalScore
-
-/*
-bowlNum bowlScore
-*/
+//numOfPins, frameNum, bowlNumsArr, bowlScore, bowlScores, strike, spare, score, scores, totalScore
