@@ -2,20 +2,20 @@ import React from 'react';
 
 const ScoreCard = (props) => {
   const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Total'];
-  const indFrames = frames.map((frame) => {
-    if (frame === 10) {
-      return (
-        <th colSpan="2" key={frame}>{frame}</th>
-      );
-    }
+  const indFrames = frames.map((frame, index) => {
+    // if (frame === 10) {
+    //   return (
+    //     <th colSpan="2" key={index}>{frame}</th>
+    //   );
+    // }
     return (
-      <th key={frame}>{frame}</th>
+      <th key={index}>{frame}</th>
     );
   });
   const frameScores = props.scores.map((score, index) => {
     if (index % 2 === 0 && index !== 0) {
       return (
-        <td key={score}>{score}</td>
+        <td key={index}>{score}</td>
       );
     }
   });
@@ -43,7 +43,7 @@ const ScoreCard = (props) => {
           </tr>
           <tr className="frame-scores-row">
             {frameScores}
-            <td colSpan="2" id="total-score">{props.totalScore}</td>
+            <td id="total-score">{props.totalScore}</td>
           </tr>
         </tbody>
       </table>
