@@ -35,11 +35,13 @@ table {
   font-size: 16px;
   margin-left:auto;
   margin-right:auto;
+  empty-cells: show;
 }
 
 th {
   border: 3px solid midnightblue;
   padding: 8px;
+  height: 35px;
 }
 
 td {
@@ -51,7 +53,7 @@ td {
 }
 
 .frame-scores-row {
-  height: 65px;
+  height: 94px;
 }
 
 #total-score {

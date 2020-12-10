@@ -3,21 +3,9 @@ import React from 'react';
 const ScoreCard = (props) => {
   const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Total'];
   const indFrames = frames.map((frame, index) => {
-    // if (frame === 10) {
-    //   return (
-    //     <th colSpan="2" key={index}>{frame}</th>
-    //   );
-    // }
     return (
       <th key={index}>{frame}</th>
     );
-  });
-  const frameScores = props.scores.map((score, index) => {
-    if (index % 2 === 0 && index !== 0) {
-      return (
-        <td key={index}>{score}</td>
-      );
-    }
   });
 
   return (
@@ -40,9 +28,19 @@ const ScoreCard = (props) => {
             <td>{props.bowlScores[14]}{props.bowlScores[15]}</td>
             <td>{props.bowlScores[16]}{props.bowlScores[17]}</td>
             <td>{props.bowlScores[18]}{props.bowlScores[19]}{props.bowlScores[20]}</td>
+            <td></td>
           </tr>
           <tr className="frame-scores-row">
-            {frameScores}
+            <td>{props.scores[2]}</td>
+            <td>{props.scores[4]}</td>
+            <td>{props.scores[6]}</td>
+            <td>{props.scores[8]}</td>
+            <td>{props.scores[10]}</td>
+            <td>{props.scores[12]}</td>
+            <td>{props.scores[14]}</td>
+            <td>{props.scores[16]}</td>
+            <td>{props.scores[18]}</td>
+            <td>{props.scores[21]}</td>
             <td id="total-score">{props.totalScore}</td>
           </tr>
         </tbody>
