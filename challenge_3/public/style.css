@@ -20,6 +20,7 @@ button {
   background-color: #0b4085;
   height: 40px;
   width: 40px;
+  outline: none;
 }
 
 button:hover {
