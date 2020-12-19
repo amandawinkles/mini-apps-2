@@ -1,7 +1,7 @@
 import Redux from 'redux';
 import { INIT } from '../actions/initGame.js';
 
-const initGameReducer = (state = { board: [], boardSize: 10, win: false, lose: false }, action) => {
+const initGameReducer = (state = { board: [], win: false, lose: false }, action) => {
   switch (action.type) {
     case 'INIT': {
       //create board/matrix
