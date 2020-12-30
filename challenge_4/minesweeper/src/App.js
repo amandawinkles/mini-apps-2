@@ -19,8 +19,8 @@ const Title = styled.div`
 const Container = styled.div`
   display: flex;
   box-sizing: border-box;
-  height: 618px;
-  width: 600px;
+  height: 640px;
+  width: 580px;
   border-style: outset;
   border-width: 8.5px;
   border-color: #ffffff #c5c7c8 #c5c7c8 #ffffff;
@@ -37,14 +37,14 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   height: 48px;
-  width: 480px;
+  width: 460px;
   border-width: 6px;
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
   cursor: pointer;
   margin: auto;
-  padding: 0px 30px 0px 30px;
+  padding: 8.2px 30px 8.2px 30px;
 `;
 
 const MinesWrapper = styled.div`
@@ -62,7 +62,7 @@ const TimeWrapper = styled.div`
 const HeaderText = styled.span`
   height: 48px;
   width: 480px;
-  border-width: 6px;
+  border-width: 2.5px;
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
@@ -74,7 +74,7 @@ const HeaderText = styled.span`
 const MinesWindow = styled.span`
   height: 48px;
   width: 480px;
-  border-width: 6px;
+  border-width: 2.5px;
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
@@ -86,7 +86,7 @@ const MinesWindow = styled.span`
 const TimeWindow = styled.span`
   height: 48px;
   width: 480px;
-  border-width: 6px;
+  border-width: 2.5px;
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
@@ -101,8 +101,8 @@ const BoardContainer = styled.div`
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
-  height: 480px;
-  width: 480px;
+  height: 460px;
+  width: 460px;
   padding: 0px 30px 0px 30px;
   display: flex;
 `;
@@ -113,7 +113,7 @@ const Cell = styled.div`
 
 const FooterContainer = styled.div`
   height: 48px;
-  width: 480px;
+  width: 460px;
   border-width: 6px;
   border-style: inset;
   border-color: #dadcdd #ffffff #ffffff #dadcdd;
@@ -168,7 +168,7 @@ class App extends React.Component {
         <Container>
           <HeaderContainer>
             <MinesWrapper>
-              <HeaderText>mines left:</HeaderText>
+              <HeaderText>mines:</HeaderText>
               <MinesWindow>2</MinesWindow>
             </MinesWrapper>
             <TimeWrapper>
