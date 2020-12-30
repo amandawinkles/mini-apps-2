@@ -18,25 +18,77 @@ const Title = styled.div`
 
 const Container = styled.div`
   display: flex;
+  box-sizing: border-box;
+  height: 618px;
+  width: 600px;
   border-style: outset;
   border-width: 8.5px;
-  border-color: #fff #c5c7c8 #c5c7c8 #fff;
+  border-color: #ffffff #c5c7c8 #c5c7c8 #ffffff;
   background-color: #e6e6e6;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 618px;
-  width: 600px;
   padding: 1.3rem 0rem 1.3rem 0rem;
 `;
 
 const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   height: 48px;
   width: 480px;
   border-width: 6px;
   border-style: inset;
-  border-color: #dadcdd #fff #fff #dadcdd;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  margin: auto;
+  padding: 0px 30px 0px 30px;
+`;
+
+const MinesWrapper = styled.div`
+  padding: 4px 24px 4px 24px;
+  position: relative;
+  margin: auto;
+`;
+
+const TimeWrapper = styled.div`
+  padding: 4px 24px 4px 24px;
+  position: relative;
+  margin: auto;
+`;
+
+const HeaderText = styled.span`
+  height: 48px;
+  width: 480px;
+  border-width: 6px;
+  border-style: inset;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  margin: auto;
+  padding: 0px 30px 0px 30px;
+`;
+
+const MinesWindow = styled.span`
+  height: 48px;
+  width: 480px;
+  border-width: 6px;
+  border-style: inset;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
+  background-color: #e6e6e6;
+  cursor: pointer;
+  margin: auto;
+  padding: 0px 30px 0px 30px;
+`;
+
+const TimeWindow = styled.span`
+  height: 48px;
+  width: 480px;
+  border-width: 6px;
+  border-style: inset;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
   cursor: pointer;
   margin: auto;
@@ -47,11 +99,16 @@ const HeaderContainer = styled.div`
 const BoardContainer = styled.div`
   border-width: 6px;
   border-style: inset;
-  border-color: #dadcdd #fff #fff #dadcdd;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
   height: 480px;
   width: 480px;
   padding: 0px 30px 0px 30px;
+  display: flex;
+`;
+
+const Cell = styled.div`
+  display: flex;
 `;
 
 const FooterContainer = styled.div`
@@ -59,15 +116,23 @@ const FooterContainer = styled.div`
   width: 480px;
   border-width: 6px;
   border-style: inset;
-  border-color: #dadcdd #fff #fff #dadcdd;
+  border-color: #dadcdd #ffffff #ffffff #dadcdd;
   background-color: #e6e6e6;
-  cursor: pointer;
   margin: auto;
-  padding: 0px 30px 0px 30px;
+  padding: 8.2px 30px 8.2px 30px;
 `;
 
-const NewGameButton = styled.button`
+const NewGameButton = styled.div`
+  height: 24px;
+  width: 114px;
+  border-width: 2.5px;
+  padding: 2px 1.5px 2.6px 1.5px;
+  margin: auto;
   &:focus {outline:0;};
+  border-style: outset;
+  border-color: #ffffff #dadcdd #dadcdd #ffffff;
+  justify-content: center;
+  text-align: center;
 `;
 
 class App extends React.Component {
@@ -102,16 +167,23 @@ class App extends React.Component {
         </Title>
         <Container>
           <HeaderContainer>
-            <div>
-
-            </div>
+            <MinesWrapper>
+              <HeaderText>mines left:</HeaderText>
+              <MinesWindow>2</MinesWindow>
+            </MinesWrapper>
+            <TimeWrapper>
+              <HeaderText>time:</HeaderText>
+              <TimeWindow>095</TimeWindow>
+            </TimeWrapper>
           </HeaderContainer>
           <BoardContainer>
+            <Cell>
 
+            </Cell>
           </BoardContainer>
           <FooterContainer>
             <NewGameButton>
-
+              <button type="submit" value="New Game">NEW GAME</button>
             </NewGameButton>
           </FooterContainer>
         </Container>
