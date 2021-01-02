@@ -1,5 +1,8 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+//import BoardContainer from './components/Board.js';
+//import Cell from './components/Cell.js';
+//import { init } from './actions/initGame.js';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -107,9 +110,9 @@ const BoardContainer = styled.div`
   display: flex;
 `;
 
-const Cell = styled.div`
-  display: flex;
-`;
+// const Cell = styled.div`
+//   display: flex;
+// `;
 
 const FooterContainer = styled.div`
   height: 48px;
@@ -135,31 +138,20 @@ const NewGameButton = styled.div`
   text-align: center;
 `;
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      board: [],
-      win: false,
-      lose: false,
-      minesLeft: 10,
-      time: Date.now(),
-      cellClicked: false,
-    };
-  }
+const App = () => (
 
-  componentDidMount() {
-    if (!this.state.win && !this.state.lose) {
-      setInterval(() => {
-        this.setState({
-          time: Date.now()
-        });
-      }, 1000)
-    }
-  }
+  // componentDidMount() {
+  //   if (!this.state.win && !this.state.lose) {
+  //     setInterval(() => {
+  //       this.setState({
+  //         time: Date.now()
+  //       });
+  //     }, 1000)
+  //   }
+  // }
 
-  render() {
-    return (
+  // render() {
+  //   return (
       <div className="main">
         <GlobalStyle />
         <Title>
@@ -176,11 +168,7 @@ class App extends React.Component {
               <TimeWindow>095</TimeWindow>
             </TimeWrapper>
           </HeaderContainer>
-          <BoardContainer>
-            <Cell>
-
-            </Cell>
-          </BoardContainer>
+          <BoardContainer />
           <FooterContainer>
             <NewGameButton>
               <button type="submit" value="New Game">NEW GAME</button>
@@ -188,8 +176,8 @@ class App extends React.Component {
           </FooterContainer>
         </Container>
       </div>
-    );
-  }
-}
+  //   );
+  // }
+);
 
 export default App;
