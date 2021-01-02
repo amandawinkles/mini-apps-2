@@ -1,24 +1,13 @@
 import Redux from 'redux';
-//import { INIT } from '../actions/initGame.js';
-/*
-board: [],
-win: false,
-lose: false,
-minesLeft: 10,
-time: Date.now(),
-cellClicked: false,
-flagClicked: false
-*/
+import { INIT } from '../actions/initGame.js';
 
 const initGameReducer = (state = { board: [], win: false, lose: false, minesLeft: 10, time: Date.now(), cellClicked: false, flagClicked: false }, action) => {
   switch (action.type) {
-    case 'INIT':
+    case INIT: {
       //create board/matrix
       const board = Array(10).fill(0).map(() =>
         Array(10).fill(0)
       );
-      // const rows = board.length;
-      // const cols = board[0].length;
       //place 10 bombs randomly on new board
       let bombs = 0;
       while (bombs < 10) {
@@ -33,11 +22,14 @@ const initGameReducer = (state = { board: [], win: false, lose: false, minesLeft
         }
       }
       //return board
-      return action.boardSetup || null;
+      return {
+        ...state,
+        board
+      };
+    }
     default:
       return state;
-
-  };
+  }
 };
 
 export default initGameReducer;
