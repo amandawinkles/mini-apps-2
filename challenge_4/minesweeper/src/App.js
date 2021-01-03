@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-//import BoardContainer from './components/Board.js';
+import Board from './components/Board.js';
 //import Cell from './components/Cell.js';
 //import { init } from './actions/initGame.js';
 
@@ -99,16 +99,16 @@ const TimeWindow = styled.span`
 `;
 
 //5inx5in
-const BoardContainer = styled.div`
-  border-width: 6px;
-  border-style: inset;
-  border-color: #dadcdd #ffffff #ffffff #dadcdd;
-  background-color: #e6e6e6;
-  height: 460px;
-  width: 460px;
-  padding: 0px 30px 0px 30px;
-  display: flex;
-`;
+// const BoardContainer = styled.div`
+//   border-width: 6px;
+//   border-style: inset;
+//   border-color: #dadcdd #ffffff #ffffff #dadcdd;
+//   background-color: #e6e6e6;
+//   height: 460px;
+//   width: 460px;
+//   padding: 0px 30px 0px 30px;
+//   display: flex;
+// `;
 
 // const Cell = styled.div`
 //   display: flex;
@@ -168,7 +168,7 @@ const App = () => (
               <TimeWindow>095</TimeWindow>
             </TimeWrapper>
           </HeaderContainer>
-          <BoardContainer />
+          <Board />
           <FooterContainer>
             <NewGameButton>
               <button type="submit" value="New Game">NEW GAME</button>
