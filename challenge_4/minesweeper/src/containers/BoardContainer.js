@@ -8,13 +8,16 @@ const mapStateToProps = (state) => ({
   board: state.board,
   win: state.win,
   lose: state.lose,
-  bombsLeft: state.bombsLeft,
+  minesLeft: state.minesLeft,
   time: state.time,
   cellClicked: state.cellClicked,
   flagClicked: state.flagClicked
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  init: (boardSetup) => {
+    dispatch(initGame(boardSetup));
+  },
   handleLeftClick: (cell) => {
     dispatch(leftClick(cell));
   },

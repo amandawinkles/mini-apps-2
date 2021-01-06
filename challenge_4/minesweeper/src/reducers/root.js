@@ -1,9 +1,9 @@
-import Redux from 'redux';
-import { combineReducers } from 'redux';
-import initGame from './initGame.js';
+// import Redux from 'redux';
+// import { combineReducers } from 'redux';
+// import initGame from './initGame.js';
 
-const rootReducer = combineReducers({
-  initGame
-});
+// const rootReducer = combineReducers({
+//   initGame
+// });
 
-export default rootReducer;
+// export default rootReducer;

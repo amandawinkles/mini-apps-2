@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-// import Cell from './Cell.js';
+import Cell from './Cell.js';
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 
 
@@ -33,15 +33,33 @@ const Td = styled.td`
   border-color: #ffffff #dadcdd #dadcdd #ffffff;
 `;
 
+// {board, handleLeftClick, handleFlagClick}
 const Board = () => {
-  //console.log('props in board: ', this.props);
-  const board = useSelector(state => state.board);
-  const cellClicked = useSelector(state => state.cellClicked);
-  const flagClicked = useSelector(state => state.flagClicked);
+  const dispatch = useDispatch();
+  const { board, win, lose, minesLeft, time} = useSelector((state) => state.initGame);
+  console.log('board: ', board);
+  // const cellClicked = useSelector(state => state.cellClicked);
+  // const flagClicked = useSelector(state => state.flagClicked);
   return (
     <PuzzleContainer>
       <PuzzleTable>
         <tbody>
+          {
+            board.map((row) => {
+              return (
+                <Tr key={row}>
+                  {
+                    row.map((cell, col) => {
+                      return (
+                        <Cell key={col} />
+                      );
+                    })
+                  }
+                  <Td className="closed"></Td>
+                </Tr>
+              );
+            })
+          }
           <Tr>
             <Td className="closed"></Td>
           </Tr>

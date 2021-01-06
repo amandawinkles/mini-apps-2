@@ -1,8 +1,8 @@
-export const INIT = 'INIT';
+//export const INIT = 'INIT';
 
-const init = (boardSetup) => ({
+const init = (board) => ({
   type: 'INIT',
-  boardSetup: boardSetup
+  board: board
 });
 
 

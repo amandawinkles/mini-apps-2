@@ -1,18 +1,19 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './../reducers/root.js';
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+//import rootReducer from './../reducers/root.js';
 import initGame from './../reducers/initGame.js';
 
-export const initialState = {
+// export const initialState = {
+//   initGame
+// };
+
+const reducer = combineReducers({
   initGame
-};
+});
 
-
-const store = createStore(
-  rootReducer,
-  initialState,
-  applyMiddleware(thunk)
-);
+const store = configureStore({
+  reducer
+});
 
 console.log(store.getState());
 
